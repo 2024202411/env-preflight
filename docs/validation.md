@@ -2,6 +2,8 @@
 
 Recorded on 2026-09-05 for the initial 0.1.0 implementation.
 
+Updated on 2026-09-06 with hosted CI results.
+
 ## Local behavior tests
 
 Environment: Linux, Node.js **24.19.0**, TypeScript **5.9.3**.
@@ -43,8 +45,19 @@ For a controlled integration trial, generated a temporary template from those na
 
 The omission was **deliberately injected into a test template**. This is not evidence of a bug in the original project, verification of its actual deployment configuration, or third-party adoption of env-preflight. Its configuration includes conditional/fallback behavior that requires manual optionality decisions for normal-mode checks.
 
-## Not yet verified
+## Hosted GitHub Actions
 
-- Hosted GitHub Actions: workflow included; results will be recorded after the development branch runs CI.
-- Node 22 and Windows: included in the planned CI matrix, not yet run locally.
-- No npm publication, GitHub Release, external-user feedback or download statistics are claimed.
+[CI run 34002124702](https://github.com/2024202411/env-preflight/actions/runs/34002124702) completed successfully for implementation commit `467973f5bb4f6e9d1d9113146726b2b93c09ec94` on 2026-09-06.
+
+| Runner | Node.js | Tests, passing example, example-only check and package validation |
+| --- | --- | --- |
+| Ubuntu | 22 | Passed |
+| Ubuntu | 24 | Passed |
+| Windows | 22 | Passed |
+| Windows | 24 | Passed |
+
+The symlink-specific test is intentionally skipped on Windows; the other behavioral tests run on both platforms. These results cover the supported source patterns and fixtures, not exhaustive framework compatibility.
+
+## Release and adoption status
+
+No npm publication, GitHub Release, external-user feedback or download statistics are claimed.
