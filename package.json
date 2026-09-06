@@ -1,0 +1,24 @@
+{
+  "name": "@2024202411/env-preflight",
+  "version": "0.1.0",
+  "description": "Check Node.js source, example configuration and local environment files before deployment.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22.0.0" },
+  "bin": { "env-preflight": "dist/cli.js" },
+  "exports": { ".": { "types": "./dist/check.d.ts", "import": "./dist/check.js" } },
+  "files": ["dist", "README.md", "README.zh-CN.md", "LICENSE"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/preflight.test.mjs",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "demo": "npm run build && node dist/cli.js --src examples/app --example examples/config/example.env --env examples/config/valid.env --optional PORT --lang zh",
+    "demo:broken": "npm run build && node dist/cli.js --src examples/app --example examples/config/example.env --env examples/config/broken.env --optional PORT --lang zh",
+    "prepack": "npm run build"
+  },
+  "dependencies": { "typescript": "5.9.3" },
+  "devDependencies": { "@types/node": "^22.0.0" },
+  "repository": { "type": "git", "url": "git+https://github.com/2024202411/env-preflight.git" },
+  "bugs": { "url": "https://github.com/2024202411/env-preflight/issues" },
+  "keywords": ["dotenv", "environment-variables", "nodejs", "cli", "configuration"]
+}
